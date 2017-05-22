@@ -1,0 +1,22 @@
+/* Header
+   ----------------------------------------------------------------- */
+
+.l-header {
+
+  @media screen and (orientation: portrait) {
+
+  }
+  @media screen and (orientation: landscape) {
+
+  }
+
+  @media all and (min-width: 768px) {
+
+  }
+
+  @media all and (min-width: 1025px) {
+    margin-bottom: 100px;
+    background: #EFEFEF;
+  }
+
+}

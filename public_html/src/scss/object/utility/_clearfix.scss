@@ -1,0 +1,14 @@
+/**
+ * Clearfix
+ */
+
+.u-clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.u-clearfix {
+    overflow: hidden;
+    zoom: 1;
+}

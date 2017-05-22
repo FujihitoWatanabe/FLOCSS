@@ -1,0 +1,36 @@
+/* Base
+   ----------------------------------------------------------------- */
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    font-size: 1.6rem;
+    text-size-adjust: 100%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    line-height: 1.1;
+}
+
+p,li,dt,dd,th,td,pre {
+    line-height: 1.5;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    empty-cells: show;
+    font: 100%;
+    font-size: inherit;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}

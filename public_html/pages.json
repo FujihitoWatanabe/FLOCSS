@@ -1,0 +1,19 @@
+{
+    "pages": {
+        "index": {
+            "id": "index",
+            "title": "トップページタイトル",
+            "description": "トップページディスクリプション"
+        },
+        "news": {
+            "id": "news",
+            "title": "ニュースページタイトル",
+            "description": "ニュースディスクリプション"
+        },
+        "news-it": {
+            "id": "news-it",
+            "title": "ニュース-ITページタイトル",
+            "description": "ニュースITディスクリプション"
+        }
+    }
+}

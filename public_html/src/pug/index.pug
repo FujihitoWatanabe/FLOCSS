@@ -1,0 +1,31 @@
+- var dir = "-"
+- var pageId = "index"
+- var relativePath = "./"
+doctype html
+html(lang="ja")
+  include common/_head.pug
+  body
+    include common/_header.pug
+
+    h1 トップページ
+
+    //-メイン
+    main
+      p トップページ
+      p.test クラスつける
+      p#test IDをつける
+      ul
+        li リスト
+        li: a(href=`${relativePath}news/`) ニュースページへs遷移
+      figure
+        picture
+          source(media="(max-width:400px)" srcset=`${relativePath}images/sp.jpg 400w` sizes="100vw")
+          source(media="(max-width:600px)" srcset=`${relativePath}images/tab.jpg 600w` sizes="100vw")
+          img(src=`${relativePath}images/pc.jpg` alt="代替")
+        figcaption 画像キャプション
+      dl
+        dt
+          dfn 見出し
+        dd 説明
+
+    include common/_footer.pug

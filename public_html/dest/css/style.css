@@ -1,0 +1,190 @@
+@charset "UTF-8";
+/* ==========================================================================
+ Foundation
+============================================================================*/
+/* Reset
+   ----------------------------------------------------------------- */
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, p, blockquote,
+th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+}
+
+img, body, html {
+  border: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6, p, li, dt, dd, th, td, address {
+  font-style: normal;
+  font-weight: normal;
+  word-wrap: break-word;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+caption, th {
+  text-align: left;
+}
+
+article, aside, figure, footer, header, nav, section {
+  display: block;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+}
+
+/* Base
+   ----------------------------------------------------------------- */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-size: 1.6rem;
+  text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+}
+
+p, li, dt, dd, th, td, pre {
+  line-height: 1.5;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  empty-cells: show;
+  font: 100%;
+  font-size: inherit;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+ layout
+============================================================================*/
+/* Container
+   ----------------------------------------------------------------- */
+/* Footer
+   ----------------------------------------------------------------- */
+/* Header
+   ----------------------------------------------------------------- */
+@media all and (min-width: 1025px) {
+  .l-header {
+    margin-bottom: 100px;
+    background: #EFEFEF;
+  }
+}
+
+/* Main
+   ----------------------------------------------------------------- */
+/* Sidebar
+   ----------------------------------------------------------------- */
+/* ==========================================================================
+ object
+============================================================================*/
+/**
+ * Button
+ *
+ * Blah Blah Blah
+ */
+/**
+ * daialog
+ */
+/**
+ * grid
+ */
+/**
+ * Media
+ */
+/**
+ * navi
+ */
+.c-navi.is-active__news {
+  font-size: 2.0rem;
+}
+
+/**
+ * Articles
+ */
+/**
+ * comments
+ */
+/**
+ * gallery
+ */
+/**
+ * p-profile
+ */
+/**
+ * align
+ */
+.u-cmove {
+  text-align: center;
+}
+
+.u-rmove {
+  text-align: right;
+}
+
+.u-lmove {
+  text-align: right;
+}
+
+/**
+ * Clearfix
+ */
+.u-clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.u-clearfix {
+  overflow: hidden;
+  zoom: 1;
+}
+
+/**
+ * Margin
+ */
+.u-mb10 {
+  margin-bottom: 20px;
+}
+
+/**
+ * position
+ */
+/**
+ * size
+ */
+.u-w100p {
+  width: 100px;
+}
+
+/**
+ * text
+ */
+.u-fsize30 {
+  font-size: 3.0rem;
+}
+
+/* EoF */
