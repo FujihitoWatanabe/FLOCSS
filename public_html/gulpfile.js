@@ -26,7 +26,7 @@
 var gulp = require("gulp");
 var uglify = require("gulp-uglify");
 var sass = require('gulp-sass');
-//var autoprefixer = require("gulp-autoprefixer");
+var autoprefixer = require("gulp-autoprefixer");
 var postcss = require("gulp-postcss");
 var cssnext = require("postcss-cssnext");
 var sassGlob = require("gulp-sass-glob");
@@ -57,8 +57,8 @@ gulp.task('scss', function() {
         'foundation/_reset.scss'
       ]
   }))
-  .pipe(postcss(processors))
   .pipe(sass({outputStyle: "expanded"}))
+  .pipe(postcss(processors))
   .pipe(gulp.dest(paths.css))
 });
 
