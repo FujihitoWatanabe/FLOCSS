@@ -3,26 +3,24 @@
 
 .l-header {
 
-  @media screen and (orientation: portrait) {
+  background: red;
 
+  @media all and (orientation: landscape) {
+    background: green;
   }
-  @media screen and (orientation: landscape) {
 
-  }
+  @include mq(medium) {
 
-  @media all and (min-width: 768px) {
+    background: blue;
 
-    @media screen and (orientation: portrait) {
-
-    }
-    @media screen and (orientation: landscape) {
-
+    @media all and (orientation: landscape) {
+      background: yellow;
     }
 
   }
 
-  @media all and (min-width: 1025px) {
-    margin-bottom: 10px;
+  @include mq(large) {
+    display: flex;
     background: #EFEFEF;
   }
 

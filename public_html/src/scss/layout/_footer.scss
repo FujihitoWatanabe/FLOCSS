@@ -3,19 +3,24 @@
 
 .l-footer {
 
-  @media screen and (orientation: portrait) {
+  background: red;
 
-  }
-  @media screen and (orientation: landscape) {
-
-  }
-
-  @media all and (min-width: 768px) {
-
+  @media all and (orientation: landscape) {
+    background: green;
   }
 
-  @media all and (min-width: 1025px) {
+  @include mq(medium) {
 
+    background: blue;
+
+    @media all and (orientation: landscape) {
+      background: yellow;
+    }
+
+  }
+
+  @include mq(large) {
+    background: #EFEFEF;
   }
 
 }

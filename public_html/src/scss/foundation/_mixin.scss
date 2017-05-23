@@ -1,0 +1,18 @@
+/**
+ * mixin
+ */
+
+$mq-breakpoints: (
+  'medium': 768px,
+  'large' : 1024px,
+);
+
+@mixin mq($breakpoint: medium, $rule: min, $subtraction: false) {
+  $breakpoint: map_get($mq-breakpoints, $breakpoint);
+  @if $rule == max and $subtraction {
+	  $breakpoint: $breakpoint - 1;
+  }
+  @media all and (#{$rule}-width: $breakpoint) {
+	  @content;
+  }
+}

@@ -80,6 +80,9 @@ img {
   height: auto;
 }
 
+/**
+ * mixin
+ */
 /* ==========================================================================
  layout
 ============================================================================*/
@@ -87,11 +90,64 @@ img {
    ----------------------------------------------------------------- */
 /* Footer
    ----------------------------------------------------------------- */
+.l-footer {
+  background: red;
+}
+
+@media all and (orientation: landscape) {
+  .l-footer {
+    background: green;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .l-footer {
+    background: blue;
+  }
+}
+
+@media all and (min-width: 768px) and (orientation: landscape) {
+  .l-footer {
+    background: yellow;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .l-footer {
+    background: #EFEFEF;
+  }
+}
+
 /* Header
    ----------------------------------------------------------------- */
-@media all and (min-width: 1025px) {
+.l-header {
+  background: red;
+}
+
+@media all and (orientation: landscape) {
   .l-header {
-    margin-bottom: 10px;
+    background: green;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .l-header {
+    background: blue;
+  }
+}
+
+@media all and (min-width: 768px) and (orientation: landscape) {
+  .l-header {
+    background: yellow;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .l-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     background: #EFEFEF;
   }
 }
@@ -189,4 +245,8 @@ img {
   font-size: 3.0rem;
 }
 
-/* EoF */
+/* ==========================================================================
+ メディアクエリ
+============================================================================*/
+
+/*# sourceMappingURL=style.css.map */

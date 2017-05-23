@@ -9,6 +9,8 @@
   // npm i -D gulp-minify-css
   // npm i -D gulp-uglify
   // npm i -D gulp gulp-sass gulp-postcss postcss-cssnext
+  // npm i -D 
+  // npm i -D gulp-sourcemaps
   // npm i -D gulp-sass-glob
   // npm i -D browser-sync
   // npm i -D gulp-debug
@@ -20,16 +22,18 @@
   // npm i -D gulp-rename
   // npm i -D gulp-pug
   // npm i -D gulp-data
-/*-------------------- /インストールコマンド -------------------- */
+/*-------------------- /インストールコマンド ----------------------*/
 
-/*-------------------- plug-in -------------------------------- */
+/*-------------------- plug-in --------------------------------- */
 var gulp = require("gulp");
 var uglify = require("gulp-uglify");
 var sass = require('gulp-sass');
-var autoprefixer = require("gulp-autoprefixer");
+//var autoprefixer = require("gulp-autoprefixer");
 var postcss = require("gulp-postcss");
 var cssnext = require("postcss-cssnext");
 var sassGlob = require("gulp-sass-glob");
+var cmq = require('gulp-combine-media-queries');
+var sourcemaps = require("gulp-sourcemaps");
 var browserSync = require("browser-sync");
 var reload = browserSync.reload;
 //var debug = require("gulp-debug");
@@ -39,7 +43,7 @@ var imagemin = require("gulp-imagemin");
 var pug = require("gulp-pug");
 var fs = require("fs");
 var data = require("gulp-data");
-/*-------------------- plug-in --------------------------------- */
+/*-------------------- /plug-in -------------------------------- */
 
 /*-------------------- タスク ---------------------------------- */
 //scssをコンパイル
@@ -52,14 +56,24 @@ gulp.task('scss', function() {
     cssnext({browsers: ["last 2 versions", "ie >= 9", "Android >= 4","ios_saf >= 8"]}) //ブラウザ/os バージョン
   ];
   return gulp.src(paths.scss + '**/*.scss')
+  .pipe(sourcemaps.init())
   .pipe(sassGlob({
       ignorePaths: [
         'foundation/_reset.scss'
       ]
   }))
   .pipe(sass({outputStyle: "expanded"}))
+  //.pipe(gcmq())
   .pipe(postcss(processors))
+  .pipe(sourcemaps.write("./"))
   .pipe(gulp.dest(paths.css))
+});
+
+// メディアクエリ整理
+gulp.task('cmq', function () {
+  gulp.src('dest/css/*.css')
+    .pipe(cmq())
+    .pipe(gulp.dest(paths.css))
 });
 
 //画像圧縮
@@ -87,7 +101,7 @@ gulp.task("pug", function () {
   gulp.src(
     ["src/pug/**/*.pug",'!' + "src/pug/**/_*.pug"] //参照するディレクトリ、出力を除外するファイル
   )
-  //.pipe(plumber())
+  .pipe(plumber())
   .pipe(data( file => {
     return JSON.parse(fs.readFileSync(`./pages.json`));
   }))
@@ -96,7 +110,7 @@ gulp.task("pug", function () {
   }))
   .pipe(gulp.dest("dest/"))
 });
-/*-------------------- /タスク ------------------------------- */
+/*-------------------- /タスク -------------------------------- */
 
 /*-------------------- リアルタイム監視------------------------ */
 gulp.task("watch", function() {
