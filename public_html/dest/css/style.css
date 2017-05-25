@@ -80,9 +80,6 @@ img {
   height: auto;
 }
 
-/**
- * mixin
- */
 /* ==========================================================================
  layout
 ============================================================================*/
@@ -94,62 +91,10 @@ img {
   background: red;
 }
 
-@media all and (orientation: landscape) {
-  .l-footer {
-    background: green;
-  }
-}
-
-@media all and (min-width: 768px) {
-  .l-footer {
-    background: blue;
-  }
-}
-
-@media all and (min-width: 768px) and (orientation: landscape) {
-  .l-footer {
-    background: yellow;
-  }
-}
-
-@media all and (min-width: 1024px) {
-  .l-footer {
-    background: #EFEFEF;
-  }
-}
-
 /* Header
    ----------------------------------------------------------------- */
 .l-header {
   background: red;
-}
-
-@media all and (orientation: landscape) {
-  .l-header {
-    background: green;
-  }
-}
-
-@media all and (min-width: 768px) {
-  .l-header {
-    background: blue;
-  }
-}
-
-@media all and (min-width: 768px) and (orientation: landscape) {
-  .l-header {
-    background: yellow;
-  }
-}
-
-@media all and (min-width: 1024px) {
-  .l-header {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    background: #EFEFEF;
-  }
 }
 
 /* Main
@@ -164,6 +109,11 @@ img {
  *
  * Blah Blah Blah
  */
+.c-btn {
+  cursor: pointer;
+  padding: 10px;
+}
+
 /**
  * daialog
  */
@@ -174,21 +124,37 @@ img {
  * Media
  */
 /**
- * navi
- */
-.c-navi.is-active__news {
-  font-size: 2.0rem;
-}
-
-/**
  * Articles
  */
+.p-articles {
+  margin: 10px;
+}
+
+.p-article {
+  margin-bottom: 20px;
+}
+
+.p-article__title {
+  font-size: 20px;
+}
+
 /**
  * comments
  */
 /**
  * gallery
  */
+/**
+ * navi
+ */
+.p-navi__item.is-top {
+  background: red;
+}
+
+.p-navi__item.is-news {
+  background: green;
+}
+
 /**
  * p-profile
  */
@@ -217,15 +183,23 @@ img {
 }
 
 .u-clearfix {
-  overflow: hidden;
+  overflow: visible;
   zoom: 1;
 }
 
 /**
  * Margin
  */
-.u-mb10 {
+.u-mbs {
+  margin-bottom: 5px;
+}
+
+.u-mbm {
   margin-bottom: 20px;
+}
+
+.u-mbl {
+  margin-bottom: 50px;
 }
 
 /**
@@ -248,5 +222,45 @@ img {
 /* ==========================================================================
  メディアクエリ
 ============================================================================*/
+
+@media all and (orientation: landscape){
+  .l-footer{
+    background: green;
+  }
+  .l-header{
+    background: green;
+  }
+}
+
+@media all and (min-width: 768px){
+  .l-footer{
+    background: blue;
+  }
+  .l-header{
+    background: blue;
+  }
+}
+
+@media all and (min-width: 768px) and (orientation: landscape){
+  .l-footer{
+    background: yellow;
+  }
+  .l-header{
+    background: yellow;
+  }
+}
+
+@media all and (min-width: 1024px){
+  .l-footer{
+    background: #EFEFEF;
+  }
+  .l-header{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background: #EFEFEF;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

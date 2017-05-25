@@ -9,7 +9,7 @@
   // npm i -D gulp-minify-css
   // npm i -D gulp-uglify
   // npm i -D gulp gulp-sass gulp-postcss postcss-cssnext
-  // npm i -D 
+  // npm i -D css-mqpacker
   // npm i -D gulp-sourcemaps
   // npm i -D gulp-sass-glob
   // npm i -D browser-sync
@@ -32,7 +32,6 @@ var sass = require('gulp-sass');
 var postcss = require("gulp-postcss");
 var cssnext = require("postcss-cssnext");
 var sassGlob = require("gulp-sass-glob");
-var cmq = require('gulp-combine-media-queries');
 var sourcemaps = require("gulp-sourcemaps");
 var browserSync = require("browser-sync");
 var reload = browserSync.reload;
@@ -63,17 +62,10 @@ gulp.task('scss', function() {
       ]
   }))
   .pipe(sass({outputStyle: "expanded"}))
-  //.pipe(gcmq())
   .pipe(postcss(processors))
+  .pipe(postcss([require('css-mqpacker')]))
   .pipe(sourcemaps.write("./"))
   .pipe(gulp.dest(paths.css))
-});
-
-// メディアクエリ整理
-gulp.task('cmq', function () {
-  gulp.src('dest/css/*.css')
-    .pipe(cmq())
-    .pipe(gulp.dest(paths.css))
 });
 
 //画像圧縮
@@ -101,7 +93,7 @@ gulp.task("pug", function () {
   gulp.src(
     ["src/pug/**/*.pug",'!' + "src/pug/**/_*.pug"] //参照するディレクトリ、出力を除外するファイル
   )
-  .pipe(plumber())
+  //.pipe(plumber())
   .pipe(data( file => {
     return JSON.parse(fs.readFileSync(`./pages.json`));
   }))
