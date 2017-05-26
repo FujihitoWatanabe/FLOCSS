@@ -255,11 +255,8 @@ img {
     background: #EFEFEF;
   }
   .l-header{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    background: #EFEFEF;
+    font-size: 20px;
+    background: #000;
   }
 }
 

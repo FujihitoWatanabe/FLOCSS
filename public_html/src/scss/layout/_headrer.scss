@@ -20,8 +20,8 @@
   }
 
   @include mq(large) {
-    display: flex;
-    background: #EFEFEF;
+    font-size: 20px;
+    background: #000;
   }
 
 }

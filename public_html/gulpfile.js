@@ -36,10 +36,9 @@ var postcss = require("gulp-postcss");
 var cssnext = require("postcss-cssnext");
 var sassGlob = require("gulp-sass-glob");
 var sourcemaps = require("gulp-sourcemaps");
-var htmlhint = require("gulp-htmlhint");
+//var htmlhint = require("gulp-htmlhint");
 //var csslint = require("gulp-csslint");
-//var scsslint = require("gulp-scss-lint");
-//var browserSync = require("browser-sync");
+var scsslint = require("gulp-scss-lint");
 var browserSync = require("browser-sync");
 var reload = browserSync.reload;
 //var debug = require("gulp-debug");
@@ -52,11 +51,14 @@ var data = require("gulp-data");
 /*-------------------- /plug-in -------------------------------- */
 
 /*-------------------- タスク ---------------------------------- */
-//scssをコンパイル
+//パス
 var paths = {
   "scss": "src/scss/", //作業するscssのフォルダ
-  "css": "dest/css/"  //コンパイルして保存するcssのフォルダ
+  "css": "dest/css/",  //コンパイルして保存するcssのフォルダ
+  "html": "dest/"  //コンパイルして保存するhtmlのフォルダ
 }
+
+//scssをコンパイル
 gulp.task('scss', function() {
   var processors = [
     cssnext({browsers: ["last 2 versions", "ie >= 9", "Android >= 4","ios_saf >= 8"]}) //ブラウザ/os バージョン
@@ -75,13 +77,26 @@ gulp.task('scss', function() {
   .pipe(gulp.dest(paths.css))
 });
 
-//htmlhint
-gulp.task('html', function(){
-  gulp.src('dest/**/*.html')
-　　.pipe(htmlhint())
-    //.pipe(htmlhint.reporter()) //エラーを検知しても処理は止まらず実行。
-    .pipe(htmlhint.failReporter())　//エラーを検知すると処理を止める。
-});
+//html lint
+//gulp.task('html', function(){
+//  return gulp.src(paths.html + '**/*.html')
+//　　.pipe(htmlhint())
+//    .pipe(htmlhint.reporter()) //エラーを検知しても止まらず実行。
+//    .pipe(htmlhint.failReporter()) //エラーを検知すると処理を止める。
+//});
+
+//css lint
+//gulp.task('css', function() {
+//  return gulp.src(paths.html + '**/*.css')
+//    .pipe(csslint())
+//    .pipe(csslint.formatter());
+//});
+
+//scss lint
+//gulp.task('scss-lint', function() {
+//  return gulp.src(paths.scss + '**/*.scss')
+//    .pipe(scsslint());
+//});
 
 //画像圧縮
 gulp.task('imagemin', function(){
@@ -124,7 +139,8 @@ gulp.task("watch", function() {
   gulp.watch("src/scss/**/*.scss", ["scss"]);
   gulp.watch("src/js/*.js", ["uglify"]);
   gulp.watch("src/pug/**/*.pug", ["pug"]);
-  gulp.watch('dest/**/*.html',['html']);
+  //gulp.watch('dest/**/*.html',['html']);
+  //gulp.watch('dest/css/**/*.css',['css']);
   browserSync.init({
     files: ["src/scss/**/*.scss","src/js/","src/pug/"],
       proxy: "http://localhost/~flocss-dev/dest/",
