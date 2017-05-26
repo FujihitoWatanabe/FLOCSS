@@ -10,6 +10,9 @@
   // npm i -D gulp-uglify
   // npm i -D gulp gulp-sass gulp-postcss postcss-cssnext
   // npm i -D css-mqpacker
+  // npm i -D gulp-htmlhint
+  // npm i -D gulp-csslint
+  // npm i -D gulp-scss-lint
   // npm i -D gulp-sourcemaps
   // npm i -D gulp-sass-glob
   // npm i -D browser-sync
@@ -33,7 +36,10 @@ var postcss = require("gulp-postcss");
 var cssnext = require("postcss-cssnext");
 var sassGlob = require("gulp-sass-glob");
 var sourcemaps = require("gulp-sourcemaps");
-var browserSync = require("browser-sync");
+var htmlhint = require("gulp-htmlhint");
+//var csslint = require("gulp-csslint");
+//var scsslint = require("gulp-scss-lint");
+//var browserSync = require("browser-sync");
 var reload = browserSync.reload;
 //var debug = require("gulp-debug");
 //var plumber = require("gulp-plumber");
