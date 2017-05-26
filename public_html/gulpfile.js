@@ -40,6 +40,7 @@ var htmlhint = require("gulp-htmlhint");
 //var csslint = require("gulp-csslint");
 //var scsslint = require("gulp-scss-lint");
 //var browserSync = require("browser-sync");
+var browserSync = require("browser-sync");
 var reload = browserSync.reload;
 //var debug = require("gulp-debug");
 //var plumber = require("gulp-plumber");
@@ -72,6 +73,14 @@ gulp.task('scss', function() {
   .pipe(postcss([require('css-mqpacker')]))
   .pipe(sourcemaps.write("./"))
   .pipe(gulp.dest(paths.css))
+});
+
+//htmlhint
+gulp.task('html', function(){
+  gulp.src('dest/**/*.html')
+　　.pipe(htmlhint())
+    //.pipe(htmlhint.reporter()) //エラーを検知しても処理は止まらず実行。
+    .pipe(htmlhint.failReporter())　//エラーを検知すると処理を止める。
 });
 
 //画像圧縮
@@ -108,13 +117,14 @@ gulp.task("pug", function () {
   }))
   .pipe(gulp.dest("dest/"))
 });
-/*-------------------- /タスク -------------------------------- */
+/*-------------------- /タスク ------------------------------- */
 
 /*-------------------- リアルタイム監視------------------------ */
 gulp.task("watch", function() {
   gulp.watch("src/scss/**/*.scss", ["scss"]);
   gulp.watch("src/js/*.js", ["uglify"]);
   gulp.watch("src/pug/**/*.pug", ["pug"]);
+  gulp.watch('dest/**/*.html',['html']);
   browserSync.init({
     files: ["src/scss/**/*.scss","src/js/","src/pug/"],
       proxy: "http://localhost/~flocss-dev/dest/",
